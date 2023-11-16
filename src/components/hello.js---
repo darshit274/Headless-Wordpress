@@ -1,0 +1,22 @@
+import React, { useEffect, useState } from "react";
+import style from "./css/style.module.css";
+import Child from "./Child";
+
+const Hello = (props) => {
+    const [fname, setFname] = useState('');
+
+    useEffect (() =>{
+        console.log("Hello");
+    },[]);
+
+  return (
+    <>
+        <h1 className={style.h1}>Hey darshit {props.name}</h1>
+        <Child />
+        <p className={style.p}>{fname}</p>
+        <input type="text" value={fname} onChange={(e) => setFname(e.target.value)} />
+    </>
+  );
+};
+
+export default Hello;

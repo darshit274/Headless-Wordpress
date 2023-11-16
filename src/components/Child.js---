@@ -1,0 +1,10 @@
+import React, {useEffect} from "react"; 
+
+const Child = () => {
+    useEffect(() => {
+        console.log("Child component mounted");
+    },[]);
+ return <h1>hello how are</h1>
+}
+
+export default Child;
