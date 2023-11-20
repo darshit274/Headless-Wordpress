@@ -1,12 +1,12 @@
 import './App.css';
 // import Hello from './components/hello.js';
-import Posts from "./components/pages/Posts"
+import Pages from './components/pages/pages.js';
 
 function App() {
   return (
-    <div className="App">
-      <Posts/>
-    </div>
+    <>
+     <Pages/>
+    </>
   );
 }
  
