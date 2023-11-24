@@ -1,9 +1,10 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const Single = () => {
     const { id } = useParams();
+    const [singleData, setSingleData] = useState([]); // Rename state variable
 
     useEffect(() => {
         const fetchData = async () => {
@@ -12,7 +13,8 @@ const Single = () => {
                 let url = `${process.env.REACT_APP_API_URL}/posts/${id}`;
                 
                 const response = await axios.get(url);
-                console.log("Single", response);
+                // console.log("Single", response);
+                setSingleData(response.data);
             } catch (error) {
                 console.error('Error', error.message);
             }
@@ -22,7 +24,21 @@ const Single = () => {
 
     return (
         <>
-            single Post {id}
+            {
+                Object.keys(singleData).length ? (
+                    <div className="p-5">
+                        <div>
+                            <img src={''} />
+                        </div>
+                        <div>
+                            <h1 className="text-2xl font-bold">
+                                {singleData.title.rendered}
+                            </h1>
+                        </div>
+                        <p dangerouslySetInnerHTML={{ __html: singleData.content.rendered }}></p>
+                    </div>
+                ) : ('Loading....')
+            }
         </>
     )
 }
