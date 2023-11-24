@@ -28,7 +28,7 @@ const Single = () => {
                 Object.keys(singleData).length ? (
                     <div className="p-5">
                         <div>
-                            <img src={''} />
+                            <img src= {singleData.featured_src}  alt=""/>
                         </div>
                         <div>
                             <h1 className="text-2xl font-bold">
